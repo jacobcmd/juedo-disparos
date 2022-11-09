@@ -1,11 +1,12 @@
 window.addEventListener("load", function(){
-
+    //Declaracion de variables base o globales
     const canvas = document.getElementById("canvas-1");
     const ctx =  canvas.getContext("2d");
 
     canvas.width = 500;
     canvas.height = 500;
 
+    //Clase de configuracion de las teclas para jugar
     class InputHandler{
         constructor(game){
             this.game = game;
@@ -236,22 +237,22 @@ window.addEventListener("load", function(){
             context.shadowOffsetY = 2;
             context.shadowColor = "black";
             context.font = this.fontSize + "px " + this.fontFamily;
-            context.fillText("Score " + this.game.score, 20, 40);
+            context.fillText("Puntaje " + this.game.score, 20, 40);
             for (let i = 0; i < this.game.ammo; i++) {
                 context.fillRect(20 + 5*i,50,3,20);
             }
             const formattedTime = (this.game.gameTime*0.001).toFixed(1);
-            context.fillText("Timer: " + formattedTime, 20, 100);
+            context.fillText("Tiempo: " + formattedTime, 20, 100);
             if (this.game.gameOver) {
                 context.textAlign = "center";
                 let message1;
                 let message2;
                 if (this.game.score > this.game.winningScore) {
-                    message1 = "You won";
-                    message2 = "Well done";
+                    message1 = "Ganaste";
+                    message2 = "Bien hecho";
                 } else {
-                    message1 = "You lost";
-                    message2 = "Try again! :(";
+                    message1 = "Perdiste";
+                    message2 = "¡Intentar otra vez! :(";
                 }
                 context.font = "50px " + this.fontFamily;
                 context.fillText(   message1, 
@@ -284,11 +285,11 @@ window.addEventListener("load", function(){
             this.enemiesTimer = 0;
             this.enemiesInterval = 1000;
             this.gameOver = false;
-            this.score = 0;
-            this.winningScore = 10;
+            this.score = 9;
+            this.winningScore = 5;
             this.gameTime = 0;
-            this.timeLimit = 15000;
-            this.speed = 1;
+            this.timeLimit = 150000;
+            this.speed = 0.5;
             this.debug = false;
         }
 
