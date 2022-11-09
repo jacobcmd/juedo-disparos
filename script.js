@@ -32,6 +32,7 @@ window.addEventListener("load", function(){
         }
     }
 
+    //clase para mostrar disparos
     class Projectile{
         constructor(game, x, y){
             this.game = game;
@@ -58,6 +59,7 @@ window.addEventListener("load", function(){
         
     }
 
+    //clase de configuracion general del juego
     class Player{
         constructor(game){
             this.game = game;
@@ -196,6 +198,7 @@ window.addEventListener("load", function(){
         }
     }
 
+    //clase donde se encuentra el escenario del juego
     class BackGround{
         constructor(game){
             this.game = game;
@@ -222,6 +225,7 @@ window.addEventListener("load", function(){
 
     }
 
+    //clase que define colores, tipode letra, tamaño, mensajes, etc
     class UI{
         constructor(game){
             this.game = game;
@@ -268,6 +272,7 @@ window.addEventListener("load", function(){
         }
     }
 
+    //clase que llama a la mayoria de clases
     class Game{
         constructor(width, height){
             this.width = width;
@@ -364,9 +369,11 @@ window.addEventListener("load", function(){
 
     }
 
+    //crea un objeto Game
     const game = new Game(canvas.width, canvas.height);
     let lastTime = 0;
 
+    //funcion de animacion
     function animate(timeStamp){
         const deltaTime = timeStamp - lastTime;
         lastTime = timeStamp;
